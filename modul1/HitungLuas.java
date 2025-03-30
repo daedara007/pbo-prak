@@ -54,7 +54,7 @@ public class HitungLuas {
         P1.HitungLuasPersegiPanjang());
 
         Trapesium TR1 = new Trapesium(10, 5, 8);
-        System.out.printf ("Luas Trapesiumnya adalah: %.2f",
+        System.out.printf ("Luas Trapesiumnya adalah: %.2f%n",
         TR1.HitungLuasTrapesium());
     }
 }
