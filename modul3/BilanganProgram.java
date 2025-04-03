@@ -116,13 +116,13 @@ public class BilanganProgram {
     // Fungsi untuk ganjil/genap dengan for-loop
     static void printGanjilGenapFor() {
         System.out.println("Bilangan ganjil (for-loop):");
-        for(int i = 1; i <= 1000; i += 2) {
-            System.out.print(i + " ");
+        for(int i = 1; i <= 1000; i += 1) {
+            if (i%2 != 0) {System.out.print(i + " ");}
         }
         
         System.out.println("\n\nBilangan genap (for-loop):");
-        for(int i = 2; i <= 1000; i += 2) {
-            System.out.print(i + " ");
+        for(int i = 2; i <= 1000; i += 1) {
+            if (i%2 == 0) {System.out.print(i + " ");}
         }
     }
 
@@ -131,15 +131,15 @@ public class BilanganProgram {
         System.out.println("Bilangan ganjil (while-loop):");
         int i = 1;
         while(i <= 1000) {
-            System.out.print(i + " ");
-            i += 2;
+            if (i%2 != 0) {System.out.print(i + " ");}
+            i += 1;
         }
         
         System.out.println("\n\nBilangan genap (while-loop):");
         i = 2;
         while(i <= 1000) {
-            System.out.print(i + " ");
-            i += 2;
+            if (i%2 == 0) {System.out.print(i + " ");}
+            i += 1;
         }
     }
 
@@ -148,15 +148,15 @@ public class BilanganProgram {
         System.out.println("Bilangan ganjil (do-while-loop):");
         int i = 1;
         do {
-            System.out.print(i + " ");
-            i += 2;
+            if (i%2 != 0) {System.out.print(i + " ");}
+            i += 1;
         } while(i <= 1000);
         
         System.out.println("\n\nBilangan genap (do-while-loop):");
         i = 2;
         do {
-            System.out.print(i + " ");
-            i += 2;
+            if (i%2 == 0) {System.out.print(i + " ");}
+            i += 1;
         } while(i <= 1000);
     }
 }
