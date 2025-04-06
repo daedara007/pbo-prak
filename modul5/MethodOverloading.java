@@ -19,24 +19,24 @@ class Mahasiswa {
 
     // method overloading 1 nampilin identitas mahasiswa
     public void TampilkanInfo() {
-        System.out.println("=======================");
+        System.out.println("----------------------------");
         System.out.println("Identitas Mahasiswa:");
         System.out.println("Nama    : " + nama);
         System.out.println("NIM     : " + nim);
         System.out.println("Jurusan : " + jurusan);
         System.out.println("Fakultas: " + fakultas);
-        System.out.println("=======================\n");
+        System.out.println("----------------------------\n");
     }
 
-    // method overloading 2 buat namipilin prestasi akademik
+    // method overloading 2 buat nampilin prestasi akademik
     public void TampilkanInfo(double ips, double ipk, String beasiswa){
-        System.out.println("=======================");
+        System.out.println("----------------------------");
         System.out.println("Prestasi Akademik:");
         System.out.println("Nama            : " + nama);
         System.out.println("IP Semester     : " + ips);
         System.out.println("IP Kumulatif    : " + ipk);
         System.out.println("Riwayat Beasiswa: " + beasiswa);
-        System.out.println("=======================");
+        System.out.println("----------------------------");
     }
 
 }
