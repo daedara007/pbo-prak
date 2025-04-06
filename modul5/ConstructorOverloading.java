@@ -21,7 +21,7 @@ class Mhs {
         this.ipk = ipk;
     }
 
-    // Constructor 2 attribute tidak ada
+    // Constructor 2 attribute ipk dan ips tidak ada
     public Mhs(String nama, int nim, String jurusan, String fakultas){
         this(nama,nim,jurusan,fakultas,0.0,0.0);
     }

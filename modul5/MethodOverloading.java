@@ -44,7 +44,7 @@ class Mahasiswa {
 // class utamanya
 public class MethodOverloading {
     public static void main(String[] args) {
-        // objek 1 dengan method overloading 1
+        // objek 1
         Mahasiswa mahasiswa1 = new Mahasiswa(
             "Udin",
             "232410150",
@@ -54,8 +54,11 @@ public class MethodOverloading {
     
     // buat panggil method overloading 1
     mahasiswa1.TampilkanInfo();
-    // method overloading 2
-    mahasiswa1.TampilkanInfo(3.2,3.6,"Beasiswa gratispol");
+    // buat panggil method overloading 2
+    mahasiswa1.TampilkanInfo(
+        3.2,
+        3.6,
+        "Beasiswa gratispol");
     }
     
 }
