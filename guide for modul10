@@ -1,0 +1,17 @@
+sql:
+CREATE DATABASE Mahasiswa;
+USE Mahasiswa;
+CREATE TABLE table_mhs (
+    no INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(255),
+    nim VARCHAR(50),
+    jurusan VARCHAR(100),
+    alamat VARCHAR(255),
+    no_telpon VARCHAR(20),
+    fakultas VARCHAR(100),
+    universitas VARCHAR(100),
+    bidang_peminatan VARCHAR(100)
+);
+
+to run:
+java -cp C:\Users\kevin\Music\mysql\mysql-connector-j-9.2.0.jar DataMahasiswa.java
