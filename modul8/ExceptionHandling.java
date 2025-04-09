@@ -6,6 +6,7 @@ public class ExceptionHandling {
         try {
             int a = 10;
             int b = 0;
+            // mencoba pembagian 0 yang akan membuat error ArithmetichException
             System.out.println("Hasil pembagian: " + (a / b));
         } catch (ArithmeticException e) {
             System.out.println("ArithmeticException tertangkap: " + e.getMessage());

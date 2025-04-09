@@ -1,3 +1,4 @@
+// groupping modul7
 package modul7;
 
 // Class induknya
@@ -11,7 +12,7 @@ class AlatMusik {
         this.jenis = jenis;
     }
 
-    // Method abstrak yang akan di‑override oleh subclass
+    // Method yang akan di‑override oleh subclass
     public void tampilkanJenis(){
         System.out.println("Cek alat musiknya");
     }
