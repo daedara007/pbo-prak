@@ -1,3 +1,4 @@
+// Groupping modul9
 package modul9;
 
 // import java swing
@@ -12,19 +13,24 @@ public class SimpleCalculator extends JFrame implements ActionListener {
     private String operator = "";
     private boolean startNewNumber = true;
 
+    // Buat inisiasi GUInya
     public SimpleCalculator() {
         initUI();
     }
 
+    // Settingan guinya
     private void initUI() {
+        // setup untuk layarnya
         display = new JTextField("0");
         display.setEditable(false);
         display.setHorizontalAlignment(JTextField.RIGHT);
-        display.setFont(new Font("Arial", Font.PLAIN, 24));
+        display.setFont(new Font("Arial", Font.PLAIN, 25));
 
+        // setup panel tombolnya
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 4, 5, 5));
 
+        // struktur tombolnya
         String[] labels = {
             "C", "%", "mod", "/",
             "7", "8", "9", "*",
@@ -34,6 +40,7 @@ public class SimpleCalculator extends JFrame implements ActionListener {
             "x³", "√", "", ""
         };
 
+        // perulangan untuk munculin tombolnya
         for (String text : labels) {
             if (text.isEmpty()) {
                 panel.add(new JLabel());
@@ -45,61 +52,76 @@ public class SimpleCalculator extends JFrame implements ActionListener {
             }
         }
 
+        // buat atur bordernya
         setLayout(new BorderLayout(5, 5));
         add(display, BorderLayout.NORTH);
         add(panel, BorderLayout.CENTER);
 
+        // buat bagian titlenya
         setTitle("Kalkulator Sederhana");
         setSize(300, 400);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    // method atau action untuk setiap tombol
     @Override
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
 
         try {
+            // jika tombol c ditekan
             if (cmd.equals("C")) {
                 display.setText("0");
                 firstNumber = 0;
                 operator = "";
                 startNewNumber = true;
 
+            // jika tombol % ditekan
             } else if (cmd.equals("%")) {
                 double value = Double.parseDouble(display.getText());
                 value /= 100;
                 display.setText(formatNumber(value));
 
+            // jika tombol pangkat ditekan
             } else if (cmd.equals("x²")) {
                 double value = Double.parseDouble(display.getText());
                 value = Math.pow(value, 2);
                 display.setText(formatNumber(value));
 
+            // jika tombol pangkat 3 ditekan
             } else if (cmd.equals("x³")) {
                 double value = Double.parseDouble(display.getText());
                 value = Math.pow(value, 3);
                 display.setText(formatNumber(value));
 
+            // jika tombol akar ditekan
             } else if (cmd.equals("√")) {
                 double value = Double.parseDouble(display.getText());
                 value = Math.sqrt(value);
                 display.setText(formatNumber(value));
 
+            // jika tombol + ditekan
             } else if (cmd.equals("+") || cmd.equals("-") || cmd.equals("*") || cmd.equals("/") || cmd.equals("mod")) {
                 firstNumber = Double.parseDouble(display.getText());
                 operator = cmd;
                 startNewNumber = true;
 
+            // jika tombol = ditekan
             } else if (cmd.equals("=")) {
                 if (!operator.isEmpty()) {
                     double second = Double.parseDouble(display.getText());
                     double result = 0;
                     switch (operator) {
+                        // untuk operator tambah
                         case "+": result = firstNumber + second; break;
+                        // untuk operator kurang
                         case "-": result = firstNumber - second; break;
+                        // untuk operator kali
                         case "*": result = firstNumber * second; break;
+                        // untuk operator bagi
                         case "/": result = firstNumber / second; break;
+                        // untuk operator mod
                         case "mod": result = firstNumber % second; break;
                     }
                     display.setText(formatNumber(result));
@@ -108,7 +130,7 @@ public class SimpleCalculator extends JFrame implements ActionListener {
                 }
 
             } else {
-                // Digit or decimal point
+                // Untuk angka desimal
                 if (startNewNumber) {
                     display.setText(cmd);
                     startNewNumber = false;
@@ -116,12 +138,14 @@ public class SimpleCalculator extends JFrame implements ActionListener {
                     display.setText(display.getText() + cmd);
                 }
             }
+        // exception handling untuk format error
         } catch (NumberFormatException ex) {
             display.setText("Error");
             startNewNumber = true;
         }
     }
 
+    // untuk menentukan format tampilan angka
     private String formatNumber(double value) {
         if (value == (long) value) {
             return String.format("%d", (long) value);
@@ -130,6 +154,8 @@ public class SimpleCalculator extends JFrame implements ActionListener {
         }
     }
 
+    // method yang akan dijalanin untuk membuat objek SimpleCalculator dan
+    // Menjalankan kalkulatornya
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             SimpleCalculator calc = new SimpleCalculator();

@@ -1,50 +1,62 @@
+// import java swing dan crud
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
+// class utamanya
 public class DataMahasiswa extends JFrame {
     private JTable table;
     private DefaultTableModel model;
     private JTextField nameField, nimField, facultyField, universityField, interestField, addressField, phoneField;
     private JComboBox<String> majorField;
 
+    // untuk settingan guinya
     public DataMahasiswa() {
+        // title appnya
         super("Data Mahasiswa");
 
         // Panel formulir
         JPanel formPanel = new JPanel(new GridLayout(8, 2, 5, 5));
         formPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
+        // Textfield untuk nama
         formPanel.add(new JLabel("Nama:"));
         nameField = new JTextField(20);
         formPanel.add(nameField);
 
+        // Textfield untuk nim
         formPanel.add(new JLabel("NIM:"));
         nimField = new JTextField(20);
         formPanel.add(nimField);
 
+        // Label untuk jurusan
         formPanel.add(new JLabel("Jurusan:"));
         majorField = new JComboBox<>(new String[]{"Informatika", "Sistem Informasi", "Teknik Elektro", "Teknik Lingkungan", "Teknik Sipil", "Arsitektur"});
         formPanel.add(majorField);
 
+        // Textfield untuk alamat
         formPanel.add(new JLabel("Alamat:"));
         addressField = new JTextField(20);
         formPanel.add(addressField);
 
-        formPanel.add(new JLabel("Phone:"));
+        // Textfield no telpon
+        formPanel.add(new JLabel("No Telepon:"));
         phoneField = new JTextField(20);
         formPanel.add(phoneField);
 
+        // Textfield untuk fakultas
         formPanel.add(new JLabel("Fakultas:"));
         facultyField = new JTextField(20);
         formPanel.add(facultyField);
 
+        // Textfield untuk universitas
         formPanel.add(new JLabel("Universitas:"));
         universityField = new JTextField(20);
         formPanel.add(universityField);
 
+        // Textfield untuk bidang peminatan
         formPanel.add(new JLabel("Bidang Peminatan:"));
         interestField = new JTextField(20);
         formPanel.add(interestField);
@@ -53,19 +65,22 @@ public class DataMahasiswa extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 
-        // Tentukan ukuran preferensi untuk semua tombol
+        // Buat aturan preferensi untuk semua tombol
         Dimension buttonSize = new Dimension(90, 30);
 
-        // Buat tombol dan atur ukurannya
+        // Buat tombol tambah
         JButton addButton = new JButton("Tambah");
         addButton.setPreferredSize(buttonSize);
 
+        // Buat tombol edit
         JButton editButton = new JButton("Edit");
         editButton.setPreferredSize(buttonSize);
 
+        // Buat tombol hapus
         JButton deleteButton = new JButton("Hapus");
         deleteButton.setPreferredSize(buttonSize);
 
+        // Buat tombol clear
         JButton clearButton = new JButton("Clear");
         clearButton.setPreferredSize(buttonSize);
 
